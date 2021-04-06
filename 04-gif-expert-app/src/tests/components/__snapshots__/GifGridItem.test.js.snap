@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests component GifGridItem Test if the coponent update correctly 1`] = `
+<div
+  className="card animate__animated animate__fadeIn"
+>
+  <img
+    alt="opm GIF"
+    src="https://media2.giphy.com/media/oxbNORcXx76F2/giphy.gif?cid=a652ae1db1f3uib8icf4f8d5yjlm65vkoog62yb4fh30nt2g&rid=giphy.gif"
+  />
+  <p>
+    opm GIF
+  </p>
+</div>
+`;
