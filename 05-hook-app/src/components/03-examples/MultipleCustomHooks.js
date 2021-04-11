@@ -1,6 +1,6 @@
 import React from "react";
 import "../02-useEffect/effects.css";
-import useFetch from "../../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 import useCouter from "../../hooks/useCouter";
 
 const MultipleCustomHooks = () => {
@@ -9,9 +9,6 @@ const MultipleCustomHooks = () => {
     `https://www.breakingbadapi.com/api/quotes/${counter}`
   );
   const { author, quote } = !!data && data[0];
-
-  console.log(author, quote);
-
   return (
     <div>
       <h1>BreakingBad Quotes!!!!</h1>

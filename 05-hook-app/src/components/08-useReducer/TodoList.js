@@ -1,6 +1,6 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 
 const TodoList = ({ todos = [], handleDelete, handleToggle }) => {
   return (

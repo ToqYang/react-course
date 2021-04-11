@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
-const useFetch = (url) => {
+export const useFetch = (url) => {
   const isMounted = useRef(true);
-
   const [state, setState] = useState({
     data: null,
     loading: true,
@@ -16,11 +15,8 @@ const useFetch = (url) => {
   }, []);
 
   useEffect(() => {
-    setState({
-      loading: true,
-      error: null,
-      data: null,
-    });
+    setState({ data: null, loading: true, error: null });
+
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
@@ -31,10 +27,15 @@ const useFetch = (url) => {
             data,
           });
         }
+      })
+      .catch(() => {
+        setState({
+          data: null,
+          loading: false,
+          error: "No se pudo cargar la info",
+        });
       });
   }, [url]);
 
   return state;
 };
-
-export default useFetch;
