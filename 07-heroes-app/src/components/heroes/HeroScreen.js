@@ -3,6 +3,8 @@ import { Redirect } from "react-router";
 import { useParams } from "react-router-dom";
 import { getHeroesById } from "../../selectors/getHeroById";
 
+const heroImages = require.context("../../assets/heroes", true);
+
 const HeroScreen = ({ history }) => {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroesById(heroeId), [heroeId]);
@@ -15,6 +17,7 @@ const HeroScreen = ({ history }) => {
   const handleReturn = () => {
     if (history.length <= 2) {
       history.push("/");
+      return;
     }
     history.goBack();
   };
@@ -31,7 +34,7 @@ const HeroScreen = ({ history }) => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          src={`../assets/heroes/${heroeId}.jpg`}
+          src={heroImages(`./${heroeId}.jpg`)}
           className="img-thumbnail animate__animated animate__fadeInLeft"
           alt={superhero}
         />
