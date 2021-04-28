@@ -7,6 +7,7 @@ const crearUsuario = async (req, res = response) => {
   const { name, email, password } = req.body;
 
   try {
+    console.log("crear");
     let usuario = await Usuario.findOne({ email });
 
     if (usuario) {
@@ -22,7 +23,7 @@ const crearUsuario = async (req, res = response) => {
     await usuario.save();
     const token = await generateJWT(usuario.id, usuario.name);
 
-    res.status(201).json({
+    return res.status(201).json({
       ok: true,
       name: usuario.name,
       uid: usuario.id,

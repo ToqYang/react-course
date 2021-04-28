@@ -15,6 +15,7 @@ const generateJWT = (uid, name) => {
           reject("No se pudo generar el token");
         }
         resolve(token);
+        console.log("se creo");
       }
     );
   });
